@@ -19,12 +19,6 @@
     ]
   },
   {
-    "id": "artilcecards",
-    "components": [
-      "articlecards"
-    ]
-  },
-  {
     "id": "cards",
     "components": [
       "card"
@@ -44,5 +38,12 @@
       "button",
       "title"
     ]
+  },
+  {
+      "...": "./_section.json#/filters"
+  },
+  {
+    "...": "../blocks/*/_*.json#/filters"
   }
+
 ]
