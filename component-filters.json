@@ -15,7 +15,8 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "teaser"
     ]
   },
   {
@@ -38,12 +39,5 @@
       "button",
       "title"
     ]
-  },
-  {
-      "...": "./_section.json#/filters"
-  },
-  {
-    "...": "../blocks/*/_*.json#/filters"
   }
-
 ]
