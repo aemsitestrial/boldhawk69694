@@ -1,0 +1,72 @@
+.multifieldblock .multifieldblock-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+  counter-reset: multifieldblock-item;
+}
+
+.multifieldblock .multifieldblock-list > li {
+  position: relative;
+  padding-left: 4.5rem;
+}
+
+.multifieldblock .multifieldblock-list > li::before {
+  counter-increment: multifieldblock-item;
+  content: counter(multifieldblock-item, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--link-color);
+}
+
+.multifieldblock .multifieldblock-item {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid rgb(0 0 0 / 12%);
+}
+
+.multifieldblock .multifieldblock-item-title > :first-child {
+  margin-top: 0;
+}
+
+.multifieldblock .multifieldblock-item-body > :first-child,
+.multifieldblock .multifieldblock-item-highlights > :first-child,
+.multifieldblock .multifieldblock-item-resources > :first-child {
+  margin-top: 0;
+}
+
+.multifieldblock .multifieldblock-item-body > :last-child,
+.multifieldblock .multifieldblock-item-highlights > :last-child,
+.multifieldblock .multifieldblock-item-resources > :last-child {
+  margin-bottom: 0;
+}
+
+.multifieldblock .multifieldblock-highlights-list,
+.multifieldblock .multifieldblock-resources-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.multifieldblock .multifieldblock-resources-list a {
+  overflow-wrap: anywhere;
+}
+
+@media (width >= 900px) {
+  .multifieldblock .multifieldblock-list {
+    gap: 2rem;
+  }
+
+  .multifieldblock .multifieldblock-list > li {
+    padding-left: 5.5rem;
+  }
+
+  .multifieldblock .multifieldblock-list > li::before {
+    font-size: 1.875rem;
+  }
+}
