@@ -49,6 +49,7 @@
         "title",
         "hero",
         "cards",
+        "layout",
         "multifieldblock",
         "columns",
         "fragment"

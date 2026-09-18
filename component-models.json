@@ -235,6 +235,52 @@
     ]
   },
   {
+    "id": "layout",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Layout Variation",
+        "description": "Choose the number of columns for the layout block.",
+        "value": "two-columns",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "2 Columns",
+            "value": "two-columns"
+          },
+          {
+            "name": "3 Columns",
+            "value": "three-columns"
+          },
+          {
+            "name": "4 Columns",
+            "value": "four-columns"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "layoutitem",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "multifieldblockitem",
     "fields": [
       {
