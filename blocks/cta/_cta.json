@@ -1,0 +1,169 @@
+{
+  "definitions": [
+    {
+      "title": "CTA",
+      "id": "cta",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "CTA",
+              "model": "cta",
+              "linkText": "Get Started",
+              "classes": "",
+              "colorTheme": "teal",
+              "fontWeight": "bold",
+              "arrowOption": "with-arrow",
+              "linkMode": "internal"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "cta",
+      "fields": [
+        {
+          "component": "text",
+          "name": "linkText",
+          "label": "CTA Text",
+          "valueType": "string",
+          "required": true,
+          "validation": {
+            "minLength": 2,
+            "maxLength": 40,
+            "customErrorMsg": "Enter CTA text between 2 and 40 characters."
+          }
+        },
+        {
+          "component": "select",
+          "name": "linkMode",
+          "label": "Link Type",
+          "valueType": "string",
+          "required": true,
+          "options": [
+            {
+              "name": "Internal",
+              "value": "internal"
+            },
+            {
+              "name": "External",
+              "value": "external"
+            }
+          ]
+        },
+        {
+          "component": "aem-content",
+          "name": "internalLink",
+          "label": "Internal CTA Link",
+          "valueType": "string",
+          "condition": {
+            "===": [
+              {
+                "var": "linkMode"
+              },
+              "internal"
+            ]
+          },
+          "validation": {
+            "rootPath": "/content"
+          }
+        },
+        {
+          "component": "text",
+          "name": "externalLink",
+          "label": "External CTA Link",
+          "valueType": "string",
+          "condition": {
+            "===": [
+              {
+                "var": "linkMode"
+              },
+              "external"
+            ]
+          },
+          "validation": {
+            "regExp": "^(https?:\\/\\/|mailto:|tel:).+$",
+            "customErrorMsg": "Use a valid external URL, mailto, or tel link."
+          }
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "label": "CTA Style Variation",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Filled Background",
+              "value": "filled"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "colorTheme",
+          "label": "CTA Color",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Teal",
+              "value": "teal"
+            },
+            {
+              "name": "Coral",
+              "value": "coral"
+            },
+            {
+              "name": "Navy",
+              "value": "navy"
+            },
+            {
+              "name": "Gold",
+              "value": "gold"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "fontWeight",
+          "label": "CTA Font Weight",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Normal",
+              "value": "normal"
+            },
+            {
+              "name": "Bold",
+              "value": "bold"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "arrowOption",
+          "label": "Arrow Option",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "With Arrow",
+              "value": "with-arrow"
+            },
+            {
+              "name": "Without Arrow",
+              "value": "without-arrow"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
