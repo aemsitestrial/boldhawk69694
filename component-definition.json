@@ -113,6 +113,27 @@
           }
         },
         {
+          "title": "Block Validation",
+          "id": "blockvalidation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "BlockValidation",
+                  "model": "blockvalidation",
+                  "title": "Validation Demo",
+                  "titleType": "h2",
+                  "body": "<p>This block demonstrates hide and show logic, required fields, field validation, and supported value source patterns in Universal Editor.</p>",
+                  "optionSource": "static-select",
+                  "staticChoice": "default",
+                  "slug": "validation-demo"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {

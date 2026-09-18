@@ -161,6 +161,428 @@
     ]
   },
   {
+    "id": "blockvalidation",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "General",
+        "name": "generalTab"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string",
+        "required": true,
+        "validation": {
+          "minLength": 5,
+          "maxLength": 60,
+          "customErrorMsg": "Enter a title between 5 and 60 characters."
+        }
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Heading 2",
+            "value": "h2"
+          },
+          {
+            "name": "Heading 3",
+            "value": "h3"
+          },
+          {
+            "name": "Heading 4",
+            "value": "h4"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "body",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "boolean",
+        "name": "isDecorative",
+        "label": "Decorative Image",
+        "description": "Mirrors the AEM Core Image pattern where alt text is hidden when the image is decorative.",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "isDecorative"
+            },
+            false
+          ]
+        },
+        "validation": {
+          "minLength": 5,
+          "maxLength": 120,
+          "customErrorMsg": "Provide meaningful alt text between 5 and 120 characters, or mark the image as decorative."
+        }
+      },
+      {
+        "component": "boolean",
+        "name": "enableCta",
+        "label": "Enable CTA",
+        "description": "AEM dialog style show/hide example for related authoring fields.",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "ctaLinkText",
+        "label": "CTA Label",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "enableCta"
+            },
+            true
+          ]
+        },
+        "validation": {
+          "minLength": 2,
+          "maxLength": 30,
+          "customErrorMsg": "Use a CTA label between 2 and 30 characters."
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "ctaLink",
+        "label": "CTA Link",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "enableCta"
+            },
+            true
+          ]
+        },
+        "validation": {
+          "rootPath": "/content"
+        }
+      },
+      {
+        "component": "tab",
+        "label": "Option Sources",
+        "name": "optionSourcesTab"
+      },
+      {
+        "component": "select",
+        "name": "optionSource",
+        "label": "Option Source Type",
+        "description": "Switch between supported option and value source patterns in Universal Editor.",
+        "valueType": "string",
+        "required": true,
+        "options": [
+          {
+            "name": "Static Select",
+            "value": "static-select"
+          },
+          {
+            "name": "Static Multi Select",
+            "value": "multiselect"
+          },
+          {
+            "name": "Radio Group",
+            "value": "radio-group"
+          },
+          {
+            "name": "Checkbox Group",
+            "value": "checkbox-group"
+          },
+          {
+            "name": "AEM Tags",
+            "value": "aem-tag"
+          },
+          {
+            "name": "Asset Picker",
+            "value": "asset-picker"
+          },
+          {
+            "name": "AEM Content Picker",
+            "value": "content-picker"
+          },
+          {
+            "name": "Content Fragment Picker",
+            "value": "content-fragment"
+          },
+          {
+            "name": "Experience Fragment Picker",
+            "value": "experience-fragment"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "staticChoice",
+        "label": "Static Select Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "static-select"
+          ]
+        },
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Compact",
+            "value": "compact"
+          },
+          {
+            "name": "Featured",
+            "value": "featured"
+          }
+        ]
+      },
+      {
+        "component": "multiselect",
+        "name": "multiChoice",
+        "label": "Multi Select Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "multiselect"
+          ]
+        },
+        "options": [
+          {
+            "name": "Light Theme",
+            "value": "light"
+          },
+          {
+            "name": "Bordered",
+            "value": "bordered"
+          },
+          {
+            "name": "Elevated",
+            "value": "elevated"
+          }
+        ]
+      },
+      {
+        "component": "radio-group",
+        "name": "radioChoice",
+        "label": "Radio Group Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "radio-group"
+          ]
+        },
+        "options": [
+          {
+            "name": "Internal",
+            "value": "internal"
+          },
+          {
+            "name": "Partner",
+            "value": "partner"
+          },
+          {
+            "name": "Campaign",
+            "value": "campaign"
+          }
+        ]
+      },
+      {
+        "component": "checkbox-group",
+        "name": "checkboxChoice",
+        "label": "Checkbox Group Example",
+        "valueType": "string[]",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "checkbox-group"
+          ]
+        },
+        "options": [
+          {
+            "name": "Web",
+            "value": "web"
+          },
+          {
+            "name": "Mobile",
+            "value": "mobile"
+          },
+          {
+            "name": "Email",
+            "value": "email"
+          }
+        ]
+      },
+      {
+        "component": "aem-tag",
+        "name": "tagChoice",
+        "label": "AEM Tag Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "aem-tag"
+          ]
+        }
+      },
+      {
+        "component": "reference",
+        "name": "assetChoice",
+        "label": "Asset Picker Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "asset-picker"
+          ]
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "contentChoice",
+        "label": "AEM Content Picker Example",
+        "valueType": "string",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "content-picker"
+          ]
+        },
+        "validation": {
+          "rootPath": "/content"
+        }
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "fragmentChoice",
+        "label": "Content Fragment Picker Example",
+        "valueType": "string",
+        "variationName": "fragmentVariation",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "content-fragment"
+          ]
+        },
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "aem-experience-fragment",
+        "name": "experienceChoice",
+        "label": "Experience Fragment Picker Example",
+        "valueType": "string",
+        "variationName": "experienceVariation",
+        "condition": {
+          "===": [
+            {
+              "var": "optionSource"
+            },
+            "experience-fragment"
+          ]
+        },
+        "validation": {
+          "rootPath": "/content/experience-fragments"
+        }
+      },
+      {
+        "component": "tab",
+        "label": "Validation Rules",
+        "name": "validationRulesTab"
+      },
+      {
+        "component": "text",
+        "name": "slug",
+        "label": "Slug",
+        "valueType": "string",
+        "required": true,
+        "validation": {
+          "regExp": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "customErrorMsg": "Use lowercase letters, numbers, and hyphens only."
+        }
+      },
+      {
+        "component": "text",
+        "name": "contactEmail",
+        "label": "Contact Email",
+        "valueType": "string",
+        "validation": {
+          "regExp": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+          "customErrorMsg": "Enter a valid email address."
+        }
+      },
+      {
+        "component": "number",
+        "name": "priority",
+        "label": "Priority",
+        "valueType": "number",
+        "value": 1,
+        "validation": {
+          "numberMin": 1,
+          "numberMax": 12,
+          "customErrorMsg": "Enter a number between 1 and 12."
+        }
+      },
+      {
+        "component": "date-time",
+        "name": "publishDate",
+        "label": "Publish Date",
+        "valueType": "date"
+      },
+      {
+        "component": "aem-content",
+        "name": "legalPage",
+        "label": "Legal Page",
+        "description": "Content validation example limited to approved site content.",
+        "valueType": "string",
+        "validation": {
+          "rootPath": "/content"
+        }
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {

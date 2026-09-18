@@ -1,0 +1,32 @@
+.blockvalidation {
+  display: grid;
+  gap: 1rem;
+}
+
+.blockvalidation .blockvalidation-row {
+  padding: 1rem 1.25rem;
+  border: 1px solid #dadada;
+  background-color: var(--background-color);
+}
+
+.blockvalidation .blockvalidation-row-heading {
+  border-color: var(--link-color);
+}
+
+.blockvalidation .blockvalidation-row-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blockvalidation .blockvalidation-row > :first-child {
+  margin-top: 0;
+}
+
+.blockvalidation .blockvalidation-row > :last-child {
+  margin-bottom: 0;
+}
+
+.blockvalidation .blockvalidation-row-link a {
+  overflow-wrap: anywhere;
+}
