@@ -1,0 +1,58 @@
+{
+  "definitions": [
+    {
+      "title": "Validation Pickers",
+      "id": "validationpickers",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "ValidationPickers",
+              "model": "validationpickers"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "validationpickers",
+      "fields": [
+        {
+          "component": "aem-tag",
+          "name": "tagChoice",
+          "label": "AEM Tag Example",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "name": "assetChoice",
+          "label": "Asset Picker Example",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "contentChoice",
+          "label": "AEM Content Picker Example",
+          "valueType": "string",
+          "validation": {
+            "rootPath": "/content"
+          }
+        },
+        {
+          "component": "aem-content-fragment",
+          "name": "fragmentChoice",
+          "label": "Content Fragment Picker Example",
+          "valueType": "string",
+          "variationName": "fragmentVariation",
+          "validation": {
+            "rootPath": "/content/dam"
+          }
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

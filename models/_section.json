@@ -43,18 +43,28 @@
     {
       "id": "section",
       "components": [
-        "text",
-        "image",
+        "accordion",
+	"article",
+	"blog-list",
         "button",
-        "title",
-        "hero",
-        "cta",
-        "blockvalidation",
         "cards",
-        "layout",
-        "multifieldblock",
+        "carousel",
         "columns",
-        "fragment"
+	"dm-video",
+	"dm-scene7-template",
+        "embed",
+        "fragment",
+        "form",
+        "hero",
+        "image",
+        "quote",
+        "search",
+        "tabs",
+        "table",
+        "text",
+        "title",
+	"teaser",
+        "video"
       ]
     }
   ]
